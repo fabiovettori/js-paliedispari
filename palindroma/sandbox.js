@@ -8,12 +8,13 @@ console.log(isPalindroma(userInput));
 
 // funzione che converte la parola in lettere minuscole ed elimina gli spazi tra le lettere
 function toLowerClean(parola){
-    var parolaCampione = [];
+    var parolaClean = [];
+    var parolaCampione = parolaClean.toLowerCase();
     for (var i = 0; i < parola.length; i++) {
         var letteraDaAnalizzare = parola[i];
-        // utilizzo il codice Unicode dello spazio per eliminarlo dalla parolaù7frase per eliminare
+        // utilizzo il codice Unicode dello spazio per eliminarlo dalla parola/frase
         if (letteraDaAnalizzare.charCodeAt() !== 32) {
-            parolaCampione.push(letteraDaAnalizzare);
+            parolaClean.push(letteraDaAnalizzare);
         }
     }
     return parolaCampione;
