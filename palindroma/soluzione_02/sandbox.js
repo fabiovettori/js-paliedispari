@@ -8,30 +8,17 @@ console.log(isPalindroma(userInput));
 
 // funzione che converte la parola in lettere minuscole ed elimina gli spazi tra le lettere
 function toLowerClean(parola){
-    var parolaClean = [];
-    var parolaCampione = parolaClean.toLowerCase();
-    for (var i = 0; i < parola.length; i++) {
-        var letteraDaAnalizzare = parola[i];
-        // utilizzo il codice Unicode dello spazio per eliminarlo dalla parola/frase
+    var parolaLower = parola.toLowerCase();
+    var parolaLowerClean = [];
+    for (var i = 0; i < parolaLower.length; i++) {
+        var letteraDaAnalizzare = parolaLower[i];
+        // utilizzo il codice Unicode dello spazio per eliminarlo dalla parolaù7frase per eliminare
         if (letteraDaAnalizzare.charCodeAt() !== 32) {
-            parolaClean.push(letteraDaAnalizzare);
+            parolaLowerClean.push(letteraDaAnalizzare);
         }
     }
-    return parolaCampione;
+    return parolaLowerClean;
     // console.log(parolaCampione);
-}
-
-
-// funzione che capovolge l'ordine della parola
-function toInvert(parola){
-    var parolaInvertita = [];
-    for (var i = 0; i < parola.length; i++) {
-        var letteraDaAnalizzare = parola[i];
-        // spingo ciascuna lettera della parola/frase in prima posizione di un nuovo array cosi da capovolgerne la posizione finale
-        parolaInvertita.unshift(parola[i]);
-    }
-    return parolaInvertita;
-    // console.log(parolaInvertita);
 }
 
 
@@ -39,13 +26,16 @@ function toInvert(parola){
 function isPalindroma(parola){
     for (var i = 0; i < parola.length; i++) {
         var parolaCampione = toLowerClean(parola);
-        var parolaInvertita = toLowerClean(toInvert(parola));
+        var parolaInvertita = parola.split('');
+        parolaInvertita.reverse();
+        // console.log(parolaCampione);
+        // console.log(parolaInvertita);
         var check = false;
         if (parolaCampione[i] !== parolaInvertita[i]) {
             check = true;
         }
-    var output;
-    } if (!check) {
+    }
+    if (!check) {
         output = 'La frase/parola scelta è palindroma';
         // console.log(output);
     } else {
@@ -54,13 +44,3 @@ function isPalindroma(parola){
     }
     return output;
 }
-
-
-// test1 - determinare Unicode dello spazio
-// var test = ' ';
-// console.log(test.charCodeAt());
-
-// test2 - verifico la funzione unshift()
-// var test = [1, 2, 3];
-// var pop = test.unshift();
-// console.log(pop);
